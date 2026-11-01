@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ميني أب ديالي</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f4f4f9; }
+        h1 { color: #2481cc; }
+        button { background: #2481cc; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>مرحباً بك في الميني أب!</h1>
+    <p id="user-greeting">جاري تحميل بيانات المستخدم...</p>
+    <button onclick="showAlert()">اضغط هنا</button>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+        let user = tg.initDataUnsafe.user;
+        if (user) {
+            document.getElementById('user-greeting').innerText = `مرحباً، ${user.first_name}!`;
+        }
+        function showAlert() {
+            tg.showAlert('التطبيق شغال مزيان!');
+        }
+    </script>
+</body>
+</html>
